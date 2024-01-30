@@ -11,7 +11,7 @@ include 'adminCheck/navbarCheck.php';
 
 
 <head>
-<link rel="stylesheet" type="text/css" href="css/projectWebsiteStyle.css">
+<link rel="stylesheet" type="text/css" href="css/MainWebsiteStyle.css">
   <style>
     /* Add any custom CSS styling for the page here */
   </style>
