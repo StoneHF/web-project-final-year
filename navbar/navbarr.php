@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="css/bootstrap.css">
 <!--  CUSTOM CSS -->
 
-<link rel="stylesheet" type="text/css" href="css/WebsiteStyle.css">
+<link rel="stylesheet" type="text/css" href="css/MainWebsiteStyle.css">
 
 
  <style>
@@ -66,6 +66,18 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="HomePage.php">Home</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="Game_Release_Gallery.php">Game Releases</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="game_comp_voting_form.php"> Vote on your favourite games</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="game_comp_results_gallery.php"> View most popular games</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="news_page.php">News Articles</a>
+        </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             More
@@ -74,6 +86,7 @@
           <li><a id="logoutLink" class="dropdown-item" href="#logoutModal" data-toggle="modal">Logout</a></li> 
 			<li><a class="dropdown-item" href="foq.php" target="_blank">FOQ</a></li>
       <li><a class="dropdown-item" href="Member_Details_Page.php" target="_blank">Profile</a></li>
+      <li><a class="dropdown-item" href="forum_page.php" target="_self">View Forums</a></li>
           </ul>
         </li>
       </ul>
@@ -118,13 +131,13 @@ if (isset($_SESSION['fldMemberID'])) {
 } else {
     // The fldMemberID session variable is not set, so the user is not logged in
     echo 'User is not logged in';
- //   header ('Location: loginn_form.php');
+ //   header ('Location: login_form.php');
 }
 ?>
 <!-- DO NOT REMOVE BOOTSTRAP JS & JQUERY CDN -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <!--**********************JS CDN END************************-->
-
+<?php include 'footer.php'; ?>
 </body>
 </html>

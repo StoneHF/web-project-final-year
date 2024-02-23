@@ -14,10 +14,18 @@
 <link rel="stylesheet" href="css/bootstrap.css">
 <!--  CUSTOM CSS -->
 
-<link rel="stylesheet" type="text/css" href="css/WebsiteStyle.css">
+<link rel="stylesheet" type="text/css" href="css/projectAdminWebsiteStyle.css">
 
 
- <style>
+<?php
+// Check if the user is logged in and is an admin
+if (!isset($_SESSION['fldMemberID']) || !isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] != 1) {
+  // If not logged in or not an admin, redirect to login page
+  header('Location: login_form.php');
+  exit();
+}
+
+?>
  
 
  <style>
@@ -45,7 +53,7 @@
       text-align: center;
     }
   </style>
- </style>
+
 
 </head>
 
@@ -64,10 +72,10 @@
           <a class="nav-link active" aria-current="page" href="admin_home_page.php">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="game_image_upload_form.php">Add New Upcoming Games</a>
+          <a class="nav-link active" aria-current="page" href="admin_game_image_upload.php">Add New Upcoming Games</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="competition_image_upload_form.php">Add Games To Competition</a>
+          <a class="nav-link active" aria-current="page" href="comp_image_upload_form.php">Add Games To Competition</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -75,7 +83,10 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <li><a id="logoutLink" class="dropdown-item" href="#logoutModal" data-toggle="modal">Logout</a></li> 
-			<li><a class="dropdown-item" href="foq.html" target="_blank">FOQ</a></li>
+			    <li><a class="dropdown-item" href="Admin_News_Create_Form.php" target="_self">Create News</a></li>
+          <li><a class="dropdown-item" href="admin_delete_news_article.php" target="_self">Delete News Articles</a></li>
+          <li><a class="dropdown-item" href="admin_create_forum_form.php" target="_self">Create New Forum</a></li>
+          <li><a class="dropdown-item" href="admin_delete_forum.php" target="_self">Delete Forum</a></li>
           </ul>
         </li>
       </ul>
@@ -112,27 +123,6 @@ document.getElementById("logoutLink").addEventListener("click", function(){
   }
 </script>
 
-<?php
-// Check if the fldMemberID session variable is set
-if (isset($_SESSION['fldMemberID'])) {
-    // The fldMemberID session variable is set, so the user is logged in
-   // echo 'User is logged in with fldMemberID: ' . $_SESSION['fldMemberID'];
-} else {
-    // The fldMemberID session variable is not set, so the user is not logged in
-    echo 'User is not logged in';
-    header ('Location: loginn_form.php');
-}
-?>
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -140,7 +130,7 @@ if (isset($_SESSION['fldMemberID'])) {
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <!--**********************JS CDN END************************-->
-
+<?php include 'footer.php'; ?>
 </body>
 
 
